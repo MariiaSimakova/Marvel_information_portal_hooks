@@ -84,6 +84,7 @@ class CharList extends Component {
     }));
   };
 
+  // --
   onError = () => {
     this.setState({ loading: false, error: true });
   };
