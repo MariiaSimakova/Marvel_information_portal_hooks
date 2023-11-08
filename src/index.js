@@ -5,9 +5,4 @@ import MarvelService from "./services/MarvelService";
 
 import "./style/style.scss";
 
-ReactDOM.render(
-  // <React.StrictMode>
-  <App />,
-  // </React.StrictMode>,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));
