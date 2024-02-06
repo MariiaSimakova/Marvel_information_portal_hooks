@@ -17,6 +17,14 @@ const CharList = (props) => {
     offsetRef.current = offset;
   }, [offset]);
 
+  useEffect(() => {
+    window.addEventListener("scroll", scrollFunc);
+    onRequest(offset, true);
+    return () => {
+      window.removeEventListener("scroll", scrollFunc);
+    };
+  }, []);
+
   const scrollFunc = () => {
     if (
       !newItemLoading &&
@@ -31,14 +39,6 @@ const CharList = (props) => {
       window.removeEventListener("scroll", scrollFunc);
     }
   };
-
-  useEffect(() => {
-    window.addEventListener("scroll", scrollFunc);
-    onRequest(offset, true);
-    return () => {
-      window.removeEventListener("scroll", scrollFunc);
-    };
-  }, []);
 
   const onRequest = (offset, initial) => {
     initial ? setNewItemLoading(false) : setNewItemLoading(true);
